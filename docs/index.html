@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioIQ · Biopolis Lead & Gare (Zero Residui)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f4f7f5; color: #1b2a22; margin: 0; padding: 20px; }
+    .wrap { max-width: 1050px; margin: 0 auto; }
+    header { background: #14532d; color: #fff; padding: 20px 24px; border-radius: 12px; margin-bottom: 18px; }
+    header h1 { margin: 0 0 6px; font-size: 1.5rem; }
+    header p { margin: 0; opacity: 0.9; font-size: 0.95rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    select, input { padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; background: #fff; }
+    .meta { font-size: 0.85rem; color: #475569; margin-bottom: 14px; }
+    .card { background: #fff; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 5px solid #16a34a; }
+    .card.punta { border-left-color: #b91c1c; background: #fffafa; }
+    .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .badge { font-size: 0.78rem; padding: 3px 8px; border-radius: 999px; font-weight: 600; background: #dcfce7; color: #166534; }
+    .badge.punta { background: #fee2e2; color: #991b1b; }
+    .badge.area { background: #e0f2fe; color: #075985; }
+    .badge.score { background: #fef3c7; color: #92400e; }
+    h3 { margin: 4px 0 6px; font-size: 1.05rem; }
+    .sub { font-size: 0.88rem; color: #475569; margin-bottom: 8px; }
+    .motivo { font-size: 0.92rem; margin-bottom: 10px; }
+    a.btn { display: inline-block; text-decoration: none; background: #15803d; color: #fff; padding: 7px 12px; border-radius: 7px; font-size: 0.88rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>BioIQ · Biopolis Radar Commerciale</h1>
+      <p>Punta: Stagionatura Prosciutti Crudi (Zero Residui) · Lombardia (Condomini/Privati) · Piemonte & Lombardia (PMI/GDO)</p>
+    </header>
+    <div class="filters">
+      <select id="areaFilter">
+        <option value="">Tutte le aree</option>
+        <option value="Lombardia">Lombardia</option>
+        <option value="Piemonte">Piemonte</option>
+        <option value="Distretto Salumi / Prosciutti">Distretto Salumi / Prosciutti</option>
+        <option value="Altra area Italia">Altra area Italia</option>
+      </select>
+      <select id="serviceFilter">
+        <option value="">Tutti i servizi</option>
+        <option value="Stagionatura Prosciutti & Salumifici (Zero Residui)">Stagionatura Prosciutti & Salumifici (Zero Residui)</option>
+        <option value="HACCP & GDO / Industria Alimentare">HACCP & GDO / Industria Alimentare</option>
+        <option value="Disinfestazione & Derattizzazione">Disinfestazione & Derattizzazione</option>
+        <option value="Sanificazione & Igiene">Sanificazione & Igiene</option>
+        <option value="Allontanamento Volatili">Allontanamento Volatili</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Cerca prosciutto, stagionatura, condominio, GDO..." />
+    </div>
+    <div class="meta" id="metaInfo">Caricamento dati...</div>
+    <div id="list"></div>
+  </div>
+  <script>
+    let allItems = [];
+    async function load() {
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        const data = await res.json();
+        allItems = data.opportunita || [];
+        document.getElementById('metaInfo').textContent =
+          `Ultimo aggiornamento: ${data.log?.eseguito || '-'} · Nuovi lead mostrati: ${allItems.length}`;
+        render();
+      } catch (e) {
+        document.getElementById('metaInfo').textContent = 'Nessun dato ancora disponibile. Avvia la prima scansione su GitHub Actions.';
+      }
+    }
+    function render() {
+      const area = document.getElementById('areaFilter').value;
+      const srv = document.getElementById('serviceFilter').value;
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = allItems.filter(it => {
+        if (area && !(it.area || '').includes(area)) return false;
+        if (srv && it.servizio !== srv) return false;
+        if (q && !`${it.titolo} ${it.ente} ${it.citta} ${it.motivo}`.toLowerCase().includes(q)) return false;
+        return true;
+      });
+      const container = document.getElementById('list');
+      if (!filtered.length) {
+        container.innerHTML = '<p>Nessun nuovo lead trovato con i filtri selezionati.</p>';
+        return;
+      }
+      container.innerHTML = filtered.map(it => {
+        const isPunta = (it.servizio || '').includes('Stagionatura Prosciutti');
+        return `
+        <div class="card ${isPunta ? 'punta' : ''}">
+          <div class="badges">
+            <span class="badge area">${it.area || ''}</span>
+            <span class="badge ${isPunta ? 'punta' : ''}">${it.servizio || ''}</span>
+            <span class="badge score">Score: ${it.punteggio || 0}/100</span>
+          </div>
+          <h3>${it.titolo || ''}</h3>
+          <div class="sub">${it.ente || ''} · ${it.fonte || ''} ${it.scadenza ? '· Scad. ' + it.scadenza : ''}</div>
+          <div class="motivo">${it.motivo || ''}</div>
+          <a class="btn" href="${it.url}" target="_blank" rel="noopener">Apri opportunità</a>
+        </div>
+      `}).join('');
+    }
+    document.getElementById('areaFilter').addEventListener('change', render);
+    document.getElementById('serviceFilter').addEventListener('change', render);
+    document.getElementById('searchInput').addEventListener('input', render);
+    load();
+  </script>
+</body>
+</html>
