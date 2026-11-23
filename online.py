@@ -268,4 +268,9 @@ def fetch_all_online():
                     seen_urls.add(it["url"])
                     all_projects.append(it)
                     added += 1
-            logs.
+            logs.append({"fonte": name, "esito": "ok", "avvisi_letti": read, "classificate": added})
+        except Exception as e:
+            logs.append({"fonte": name, "esito": "ERRORE", "dettaglio": str(e)})
+
+    all_projects.sort(key=lambda x: (-x["punteggio"], x["pubblicazione"]))
+    return logs, all_projects
