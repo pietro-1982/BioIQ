@@ -13,10 +13,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Scopri Chat ID gruppo
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        run: python -c "import os, urllib.request; print(urllib.request.urlopen('https://api.telegram.org/bot' + os.environ['TELEGRAM_BOT_TOKEN'] + '/getUpdates').read().decode())"
       - name: Esegui motore BioIQ
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
