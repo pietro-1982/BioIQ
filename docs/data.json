@@ -1,17 +1,17 @@
 {
  "log": {
-  "eseguito": "2026-11-24T18:57:31+00:00",
+  "eseguito": "2026-11-25T18:01:50+00:00",
   "fonti": [
    {
     "fonte": "TED",
     "esito": "ok",
-    "avvisi_letti": 26
+    "avvisi_letti": 28
    },
    {
     "fonte": "News Salumifici & Settore",
     "esito": "ok",
-    "avvisi_letti": 102,
-    "classificate": 0
+    "avvisi_letti": 140,
+    "classificate": 1
    },
    {
     "fonte": "Reddit & Community",
@@ -24,17 +24,60 @@
   "ai": {
    "attiva": true,
    "modello": "gemini-3.5-flash-lite",
-   "analizzati": 0,
+   "analizzati": 2,
    "riclassificati": 0,
    "scartati": 0,
-   "errori_batch": 0
+   "errori_batch": 1
   },
-  "classificate_nuove": 0,
+  "classificate_nuove": 2,
   "telegram": {
    "attiva": true,
-   "inviati": 0,
-   "motivo": "Nessun nuovo lead sopra soglia oggi"
+   "inviati": 1,
+   "ok": true
   }
  },
- "opportunita": []
+ "opportunita": [
+  {
+   "id": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORzF0dk1GMENyUTRQRjVLVHdCeW5Udk5YTmo0T1ZjVGJiRG5OU2R2NEFLYmNzUmlLaU1ObGpaTlo1M08zbmNfT1B4UzBvNlVHZWFKWi1SeXhfLXczRHlpWDFZallvbWhJZjJpMlJLWE9MWTY4M0JKQ0pmSGdNeUp6bVl5T29QUkRYRlJsNnhRM3hTNmZOa3JXOEJHY2tIcDBxZlBIQnNLNTc4djU1NUk2VEc3aTUtZDNURkdBT1BfYjVBYnl0X21meFN5Rjk?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORzF0dk1GMENyUTRQRjVLVHdCeW5Udk5YTmo0T1ZjVGJiRG5OU2R2NEFLYmNzUmlLaU1ObGpaTlo1M08zbmNfT1B4UzBvNlVHZWFKWi1SeXhfLXczRHlpWDFZallvbWhJZjJpMlJLWE9MWTY4M0JKQ0pmSGdNeUp6bVl5T29QUkRYRlJsNnhRM3hTNmZOa3JXOEJHY2tIcDBxZlBIQnNLNTc4djU1NUk2VEc3aTUtZDNURkdBT1BfYjVBYnl0X21meFN5Rjk?oc=5",
+   "titolo": "Salumificio Sfreddo punta su otto mercati europei per espandere la distribuzione dei suoi prodotti - BeBeez",
+   "ente": "BeBeez",
+   "fonte": "News · BeBeez",
+   "canale": "online",
+   "area": "Altra area Italia",
+   "citta": "Altra area Italia",
+   "segmento": "Salumificio / Centro Stagionatura",
+   "servizio": "Stagionatura Prosciutti & Salumifici (Zero Residui)",
+   "altri": [],
+   "punteggio": 95,
+   "motivo": "Segnale settore · salumificio",
+   "estratto": "Salumificio Sfreddo punta su otto mercati europei per espandere la distribuzione dei suoi prodotti BeBeez",
+   "valore": "",
+   "tipo": "Notizia / Segnale aziendale",
+   "stato": "aperta",
+   "pubblicazione": "2026-11-18",
+   "scadenza": null
+  },
+  {
+   "id": "819937-2026",
+   "titolo": "Italia – Servizi di pulizia di edifici – Procedura aperta per l’affidamento del servizio di pulizia e facchinaggio per gli stabili ISMEA",
+   "ente": "ISMEA - Istituto di Servizi per il Mercato Agricolo Alimentare",
+   "citta": "Roma",
+   "area": "Altra area Italia",
+   "segmento": "Ente / Consorzio / Gara",
+   "canale": "ted",
+   "pubblicazione": "2026-11-25",
+   "scadenza": "2027-01-15",
+   "stato": "aperta",
+   "tipo": "Bando di gara",
+   "servizio": "HACCP & GDO / Industria Alimentare",
+   "altri": [],
+   "punteggio": 35,
+   "motivo": "parole: alimentar",
+   "estratto": "Servizio di pulizia e facchinaggio per gli stabili ISMEA",
+   "valore": "1681009.98",
+   "url": "https://ted.europa.eu/it/notice/-/detail/819937-2026",
+   "fonte": "TED – appalti pubblici UE"
+  }
+ ]
 }
