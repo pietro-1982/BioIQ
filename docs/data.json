@@ -1,16 +1,16 @@
 {
  "log": {
-  "eseguito": "2026-11-26T17:47:41+00:00",
+  "eseguito": "2026-11-27T17:31:37+00:00",
   "fonti": [
    {
     "fonte": "TED",
     "esito": "ok",
-    "avvisi_letti": 30
+    "avvisi_letti": 31
    },
    {
     "fonte": "News Salumifici & Settore",
     "esito": "ok",
-    "avvisi_letti": 95,
+    "avvisi_letti": 94,
     "classificate": 1
    },
    {
@@ -20,66 +20,21 @@
     "classificate": 0
    }
   ],
-  "gia_visti_filtrati": 20,
+  "gia_visti_filtrati": 22,
   "ai": {
    "attiva": true,
    "modello": "gemini-3.5-flash-lite",
-   "analizzati": 3,
-   "riclassificati": 3,
-   "scartati": 1,
+   "analizzati": 2,
+   "riclassificati": 2,
+   "scartati": 2,
    "errori_batch": 0
   },
-  "classificate_nuove": 2,
+  "classificate_nuove": 0,
   "telegram": {
    "attiva": true,
-   "inviati": 2,
-   "ok": true
+   "inviati": 0,
+   "motivo": "Nessun nuovo lead sopra soglia oggi"
   }
  },
- "opportunita": [
-  {
-   "id": "821410-2026",
-   "titolo": "Italia – Servizi di pulizia e disinfestazione – Procedura di gara aperta per l'affidamento del servizio di pulizia dei locali aziendali comprensivo della fornitura del materiale igienico- sanitario per Amag Spa, Sogeri Spa e Amag Ambiente Spa",
-   "ente": "SO.GE.R.I. Spa",
-   "citta": "Alessandria",
-   "area": "Piemonte",
-   "segmento": "Ente / Consorzio / Gara",
-   "canale": "ted",
-   "pubblicazione": "2026-11-26",
-   "scadenza": "2027-01-18",
-   "stato": "aperta",
-   "tipo": "Bando di gara",
-   "servizio": "Disinfestazione & Derattizzazione",
-   "altri": [
-    "Disinfestazione & Derattizzazione"
-   ],
-   "punteggio": 75,
-   "motivo": "AI · Gara pubblica in Piemonte per pulizia e disinfestazione. Ottimo target per espandere i servizi regionali di pest control.",
-   "estratto": "RIBASSO OFFERTO",
-   "valore": "332272.10",
-   "url": "https://ted.europa.eu/it/notice/-/detail/821410-2026",
-   "fonte": "TED – appalti pubblici UE"
-  },
-  {
-   "id": "823481-2026",
-   "titolo": "Italia – Servizi di pulizia – SERVIZI DI PULIZIA DEGLI AMBIENTI DI LAVORO DELL'AREA CADORNA",
-   "ente": "FERROVIENORD SOCIETA' PER AZIONI",
-   "citta": "MILANO (MI)",
-   "area": "Lombardia",
-   "segmento": "Ente / Consorzio / Gara",
-   "canale": "ted",
-   "pubblicazione": "2026-11-26",
-   "scadenza": "2027-01-18",
-   "stato": "aperta",
-   "tipo": "Bando di gara",
-   "servizio": "Sanificazione & Igiene",
-   "altri": [],
-   "punteggio": 70,
-   "motivo": "AI · Gara in Lombardia (Area Cadorna) per pulizie ambienti di lavoro. Buon fit per i servizi di igiene e sanificazione di Biopolis.",
-   "estratto": "SERVIZI DI PULIZIA DEGLI AMBIENTI DI LAVORO DELL'AREA CADORNA",
-   "valore": "2485398.95",
-   "url": "https://ted.europa.eu/it/notice/-/detail/823481-2026",
-   "fonte": "TED – appalti pubblici UE"
-  }
- ]
+ "opportunita": []
 }
