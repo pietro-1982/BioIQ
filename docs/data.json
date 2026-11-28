@@ -1,17 +1,17 @@
 {
  "log": {
-  "eseguito": "2026-11-27T17:31:37+00:00",
+  "eseguito": "2026-11-28T16:15:39+00:00",
   "fonti": [
    {
     "fonte": "TED",
     "esito": "ok",
-    "avvisi_letti": 31
+    "avvisi_letti": 30
    },
    {
     "fonte": "News Salumifici & Settore",
     "esito": "ok",
-    "avvisi_letti": 94,
-    "classificate": 1
+    "avvisi_letti": 89,
+    "classificate": 2
    },
    {
     "fonte": "Reddit & Community",
@@ -20,13 +20,13 @@
     "classificate": 0
    }
   ],
-  "gia_visti_filtrati": 22,
+  "gia_visti_filtrati": 21,
   "ai": {
    "attiva": true,
    "modello": "gemini-3.5-flash-lite",
-   "analizzati": 2,
-   "riclassificati": 2,
-   "scartati": 2,
+   "analizzati": 3,
+   "riclassificati": 3,
+   "scartati": 3,
    "errori_batch": 0
   },
   "classificate_nuove": 0,
